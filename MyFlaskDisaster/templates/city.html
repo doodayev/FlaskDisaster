@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Enter City Name and Rank</legend>
+                <div class="form-group">
+                    {{ form.CityName.label(class="form-control-label") }}
+                    {% if form.CityName.errors %}
+                        {{ form.CityName(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.CityName.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.CityName(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.CityRank.label(class="form-control-label") }}
+                    {% if form.CityRank.errors %}
+                        {{ form.CityRank(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.CityRank(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.Visited(class="form-check-input") }}
+                    {{ form.Visited.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <small class="text-muted">
+            Need to search something? <a class="ml-2" href="https://yandex.com/">YANDEX! The best search engine.</a>
+        </small>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+    </div>
+{% endblock content %}
+ 
